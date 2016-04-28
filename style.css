@@ -1,0 +1,60 @@
+/*
+Theme Name: Swiftboot
+Theme URI: http://vkumar.io
+Description: Here is description
+Author: Vinod Kumar
+Author URI: http://vkumar.io
+Version: 0.1
+Tags: responsive, white, bootstrap, news
+
+License: Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
+License URI: http://creativecommons.org/licenses/by-sa/3.0/
+
+This simple theme was built using the example Bootstrap theme "Basic marketing site" found on the Bootstrap web site http://twitter.github.com/bootstrap/examples/hero.html
+*/
+
+@import url('css/bootstrap.min.css'); 
+
+body{
+	
+	background-color: #f5f7fa;
+}
+
+.blog-masthead {
+	
+  background-color: #000;
+  margin-bottom: 50px;
+}
+
+.blog-nav{
+	
+	list-style-type: none;
+	margin: 0;
+    padding: 5px 5px 5px 0;
+	float: left;
+}
+
+.cat-item {
+	display: inline;
+	padding: 5px 10px 5px 0;
+	color: #FFF;
+}
+
+.cat-item a{
+	
+	
+}
+
+/* Nav links */
+.blog-nav-item {
+  position: relative;
+  display: inline-block;
+  padding: 5px 5px 5px 0;
+  color: #FFF;
+}
+.blog-nav-item:hover,
+.blog-nav-item:focus {
+  color: #fff;
+}
+
+
