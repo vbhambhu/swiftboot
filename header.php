@@ -1,32 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
-    <link href="<?php bloginfo('stylesheet_url');?>" rel="stylesheet">
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <?php wp_enqueue_script("jquery"); ?>
-    <?php wp_head(); ?>
-  </head>
-  <body>
+<html <?php language_attributes(); ?>>
+<head>
+  <meta charset="<?php bloginfo( 'charset' ); ?>">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
+  <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+  <?php endif; ?>
+  <?php wp_head(); ?>
+</head>
+<body>
+
+
+
+
+ <div class="container">
+      <nav class="navbar navbar-light bg-faded">
+        <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false" aria-label="Toggle navigation"></button>
+        <div class="collapse navbar-toggleable-xs" id="navbar-header">
+          <a class="navbar-brand" href="<?php echo( get_bloginfo( 'url' ) ); ?>"><?php echo( get_bloginfo( 'title' ) ); ?></a>
+
+
+
+
+  <?php get_the_categories(); ?>
+
+
+
+       
+          <form class="form-inline float-xs-right">
+            <input class="form-control" type="text" placeholder="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </nav> <!-- /navbar -->
+
+
+
+
+
+
 
 
    <div class="blog-masthead">
       <div class="container">
-        <ul class="blog-nav">
-          <?php wp_list_categories(array('title_li' => '')); ?>
-        </ul>
+       
       </div>
     </div>
-
 
 
 
