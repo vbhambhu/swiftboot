@@ -4,9 +4,16 @@
 
 if (!function_exists('swiftboot_setup')) :
 
-add_theme_support( 'post-thumbnails' ); 
 
 function swiftboot_setup() {
+
+
+add_theme_support( 'automatic-feed-links' );
+add_theme_support( 'title-tag' );
+add_theme_support( 'post-thumbnails' );
+set_post_thumbnail_size( 825, 510, true );
+
+
 
 }
 
@@ -17,7 +24,16 @@ remove_action( 'wp_print_styles', 'print_emoji_styles' );
 endif;
 
 
+add_action('wp_enqueue_scripts', 'add_css');
 
+
+function add_css() {
+    wp_enqueue_style('my-script-slug',  get_stylesheet_directory_uri() . '/style.css');
+}
+
+
+
+/*
 
 add_action('wp_head','hook_css', 0);
 
@@ -28,18 +44,7 @@ function hook_css() {
 	echo $output;
 
 }
-/*
-
-
-
-set_post_thumbnail_size(50, 50);
-
-
-add_image_size('single-post-thumbnail', 590, 180 );
-
-add_image_size('home-post-thumbnail', 100, 200 );
-
-
+*/
 
 function get_the_categories($parent = 0) {
     $categories = get_categories("hide_empty=0");
@@ -55,6 +60,50 @@ function get_the_categories($parent = 0) {
         echo '</ul>';
     }
 }
+
+
+
+
+function wpb_set_post_views($postID) {
+    $count_key = 'wpb_post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if($count==''){
+        $count = 0;
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+    }else{
+        $count++;
+        update_post_meta($postID, $count_key, $count);
+    }
+}
+//To keep the count accurate, lets get rid of prefetching
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+
+
+
+function wpb_track_post_views ($post_id) {
+    if ( !is_single() ) return;
+    if ( empty ( $post_id) ) {
+        global $post;
+        $post_id = $post->ID;    
+    }
+    wpb_set_post_views($post_id);
+}
+add_action( 'wp_head', 'wpb_track_post_views');
+
+/*
+
+
+
+set_post_thumbnail_size(50, 50);
+
+
+add_image_size('single-post-thumbnail', 590, 180 );
+
+add_image_size('home-post-thumbnail', 100, 200 );
+
+
+
 
 
 */

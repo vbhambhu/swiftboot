@@ -5,11 +5,12 @@
   <div class="col-md-8">
 
 
-<?php foreach (get_posts(array( 'posts_per_page' => 3 )) as $post ) : setup_postdata($post); ?>
+<?php foreach (get_posts(array( 'posts_per_page' => 20 )) as $post ) : setup_postdata($post); ?>
 
 <div class="media">
   <div class="media-left">
     <a href="#">
+    <?php the_post_thumbnail('home-post-thumbnail'); ?>
       <img class="media-object" src="..." alt="...">
     </a>
   </div>
@@ -20,10 +21,9 @@
 </div>
 
 
-<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
 
-<?php the_post_thumbnail('home-post-thumbnail'); ?>
+
 
 
 <?php endforeach;  wp_reset_postdata(); ?>
@@ -31,7 +31,6 @@
 
 
 
-<pre> <?php print_r( get_posts() ); ?></pre>
    
 
 
@@ -41,9 +40,25 @@
 
   	<div class="well">
 
-  		Trending Now
+  		<h3>Trending Now</h3>
 
-  		<?php wpp_get_mostpopular(); ?>
+      <?php 
+$popularpost = new WP_Query( array( 'posts_per_page' => 4, 'meta_key' => 'wpb_post_views_count', 'orderby' => 'meta_value_num', 'order' => 'DESC'  ) );
+
+
+//echo '<pre>'; print_r($popularpost);
+
+
+while ( $popularpost->have_posts() ) : $popularpost->the_post();
+
+the_title();
+
+endwhile;
+?>
+
+
+
+  		<?php //wpp_get_mostpopular(); ?>
 
 
   	</div>
