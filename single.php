@@ -1,5 +1,4 @@
 <?php
-
 get_header(); ?>
 
 	<div id="primary" class="content-area">
@@ -8,6 +7,7 @@ get_header(); ?>
 		<?php
 		// Start the loop.
 		while ( have_posts() ) : the_post();
+
 
 			/*
 			 * Include the post format-specific template for the content. If you want to
@@ -34,7 +34,7 @@ get_header(); ?>
 		// End the loop.
 
 
-			wpb_set_post_views(get_the_ID());
+			//wpb_set_post_views(get_the_ID());
 		endwhile;
 		?>
 
