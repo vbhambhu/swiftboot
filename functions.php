@@ -13,6 +13,11 @@ add_theme_support( 'title-tag' );
 add_theme_support( 'post-thumbnails' );
 set_post_thumbnail_size( 825, 510, true );
 
+register_nav_menus( array(
+    'primary' => __( 'Primary Menu',      'swiftboot' ),
+    'social'  => __( 'Social Links Menu', 'swiftboot' ),
+) );
+
 
 
 }
@@ -22,6 +27,11 @@ remove_action( 'wp_print_styles', 'print_emoji_styles' );
 
 
 endif;
+
+
+
+add_action( 'after_setup_theme', 'swiftboot_setup' );
+
 
 
 add_action('wp_enqueue_scripts', 'add_css');
@@ -101,7 +111,7 @@ set_post_thumbnail_size(50, 50);
 
 add_image_size('single-post-thumbnail', 590, 180 );
 
-add_image_size('home-post-thumbnail', 100, 200 );
+
 
 
 
@@ -111,3 +121,33 @@ add_image_size('home-post-thumbnail', 100, 200 );
 // add_filter( 'wp_list_categories', function( $html ) {
 //     return str_replace('cat-item', 'nav-item', $html);
 // });
+
+
+
+
+// function get_top_menu() {
+
+    
+
+
+    
+// }
+
+
+
+// add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
+
+// function special_nav_class ($classes, $item) {
+//     if (in_array('current-menu-item', $classes) ){
+//         $classes[] = 'active ';
+//     }
+//     return $classes;
+// }
+
+
+
+
+
+
+
+

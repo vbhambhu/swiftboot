@@ -12,16 +12,16 @@
 </head>
 <body>
 
-<?php
-if (is_home()) {
-    // This is the blog posts index
-    echo "i am home page";
-} else {
-    // This is not the blog posts index
-   echo "i am not home page";
-}
 
-?>
+
+
+
+
+
+
+
+
+
 
 <?php if (is_home()) { ?>
 <div class="home-wrapper">
@@ -32,29 +32,52 @@ if (is_home()) {
  <div class="container">
 
 
-    <div class="inner">
-    <h3 class="masthead-brand"><a href="/wordpress">Home</a></h3>
+    <div class="header clearfix">
+
+    <h3 class="masthead-brand">
+    <a href="<?php echo( get_bloginfo( 'url' ) ); ?>"><?php echo( get_bloginfo( 'title' ) ); ?></a>
+    </h3>
+
+
     <nav class="nav nav-masthead">
-    <a class="nav-link active" href="#">Home</a>
-    <a class="nav-link" href="#">Tutorials</a>
+
+    <?php if ( has_nav_menu( 'primary' ) ) { ?>
+<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+<?php } ?>
+
+
+    <a class="nav-link active" href="<?php echo( get_bloginfo( 'url' ) ); ?>">Home</a>
     <a class="nav-link" href="#">About me</a>
     <a class="nav-link" href="#">Contact</a>
     </nav>
+
     </div>
 
 
 
-<p>
+
+
+<?php if (is_home()) { ?>
+
+
+<div class="home-text">
 <h1>Tutorials</h1>
-Follow along with one of our 1476 
-development and sysadmin tutorials.
-</p>
-<div class="form-group ">
-<label for="lgFormGroupInput" class="col-sm-2 col-form-label col-form-label-lg">Email</label>
-<input type="email" class="form-control form-control-lg" id="lgFormGroupInput" placeholder="you@example.com">
+Search from wide range of programming, how-to and arduino tutorials. 
 </div>
 
 
+
+
+ <div class="input-group input-group-lg">
+      <input type="text" class="form-control" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-success btn-lg" type="button">Go!</button>
+      </span>
+    </div>
+
+
+
+<?php } ?>
 
 
  <!--            

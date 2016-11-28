@@ -13,27 +13,28 @@ License URI: http://creativecommons.org/licenses/by-sa/3.0/
 This simple theme was built using the example Bootstrap theme "Basic marketing site" found on the Bootstrap web site http://twitter.github.com/bootstrap/examples/hero.html
 */
 
-
-
 .home-wrapper{
 	background-color: #7a3782;
-	height: 400px;
-	padding-top: 50px;
-}
-
-.navbar{
-	
+  padding-bottom: 50px;
+  
 }
 
 
-
-.masthead {
-  margin-bottom: 2rem;
+.header {
+  padding-bottom: 20px;
+  padding-top: 50px;
 }
+
 
 .masthead-brand {
+  float: left;
   margin-bottom: 0;
 }
+
+.nav-masthead{
+  float: right;
+}
+
 
 .nav-masthead .nav-link {
   padding: .25rem 0;
@@ -57,11 +58,16 @@ This simple theme was built using the example Bootstrap theme "Basic marketing s
   border-bottom-color: #fff;
 }
 
-@media (min-width: 48em) {
-  .masthead-brand {
-    float: left;
-  }
-  .nav-masthead {
-    float: right;
-  }
+
+.home-text{
+  color: #FFF;
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 50px;
+}
+
+
+
+.text-center{
+  text-align: center;
 }
