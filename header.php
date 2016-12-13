@@ -16,13 +16,6 @@
 
 
 
-
-
-
-
-
-
-
 <?php if (is_home()) { ?>
 <div class="home-wrapper">
 <?php } ?>
@@ -41,14 +34,12 @@
 
     <nav class="nav nav-masthead">
 
-    <?php if ( has_nav_menu( 'primary' ) ) { ?>
-<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
-<?php } ?>
+  <?php if ( has_nav_menu( 'primary' ) ) { ?>
+    <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'sb-menu' ) ); ?>
+  <?php } ?>
 
 
-    <a class="nav-link active" href="<?php echo( get_bloginfo( 'url' ) ); ?>">Home</a>
-    <a class="nav-link" href="#">About me</a>
-    <a class="nav-link" href="#">Contact</a>
+   
     </nav>
 
     </div>
@@ -59,6 +50,9 @@
 
 <?php if (is_home()) { ?>
 
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+
 
 <div class="home-text">
 <h1>Tutorials</h1>
@@ -67,13 +61,20 @@ Search from wide range of programming, how-to and arduino tutorials.
 
 
 
+<form role="search" method="get" class="searchform" action="<?php echo get_site_url(); ?>">
+<div class="input-group input-group-lg">
+<input type="text" class="form-control" name="s" placeholder="Search for...">
+<span class="input-group-btn">
+<button class="btn btn-success btn-lg" type="submit">Go!</button>
+</span>
+</div>
+</form>
 
- <div class="input-group input-group-lg">
-      <input type="text" class="form-control" placeholder="Search for...">
-      <span class="input-group-btn">
-        <button class="btn btn-success btn-lg" type="button">Go!</button>
-      </span>
-    </div>
+
+</div>
+</div>
+
+
 
 
 

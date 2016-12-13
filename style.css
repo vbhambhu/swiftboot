@@ -13,9 +13,26 @@ License URI: http://creativecommons.org/licenses/by-sa/3.0/
 This simple theme was built using the example Bootstrap theme "Basic marketing site" found on the Bootstrap web site http://twitter.github.com/bootstrap/examples/hero.html
 */
 
+@font-face {
+  font-family:'MuseoSans';
+  src:url("fonts/MuseoSans_300-webfont.eot");
+  src:url("fonts/MuseoSans_300-webfont.eot?#iefix") format("embedded-opentype"),url("fonts/MuseoSans_300-webfont.woff") format("woff"),url("fonts/MuseoSans_300-webfont.ttf") format("truetype"),url("fonts/MuseoSans_300-webfont.svg#MuseoSans300") format("svg");
+  font-weight: normal;
+  font-style:normal;
+}
+
+
+
+body {
+  font-family: MuseoSans,sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+
 .home-wrapper{
 	background-color: #7a3782;
   padding-bottom: 50px;
+    margin-bottom: 20px;
   
 }
 
@@ -23,12 +40,18 @@ This simple theme was built using the example Bootstrap theme "Basic marketing s
 .header {
   padding-bottom: 20px;
   padding-top: 50px;
+
 }
 
 
-.masthead-brand {
+.masthead-brand a{
   float: left;
   margin-bottom: 0;
+  color: #fff;
+}
+
+.masthead-brand a:hover, .masthead-brand a:focus{
+  text-decoration: none; 
 }
 
 .nav-masthead{
@@ -36,6 +59,37 @@ This simple theme was built using the example Bootstrap theme "Basic marketing s
 }
 
 
+.nav-masthead .sb-menu{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sb-menu li{
+  float: left;
+  font-size: 18px;
+}
+
+.sb-menu li a{
+  text-decoration: none;
+  padding: 6px 0;
+  margin-left: 15px;
+  font-weight: bold;
+  color: rgba(255,255,255,.50);
+  background-color: transparent;
+  border-bottom: 3px solid transparent;
+}
+
+.sb-menu li a:hover{
+border-bottom-color: rgba(255,255,255,.50);
+}
+
+.sb-menu li.current-menu-item a{
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+/*
 .nav-masthead .nav-link {
   padding: .25rem 0;
   font-weight: bold;
@@ -58,6 +112,7 @@ This simple theme was built using the example Bootstrap theme "Basic marketing s
   border-bottom-color: #fff;
 }
 
+*/
 
 .home-text{
   color: #FFF;
